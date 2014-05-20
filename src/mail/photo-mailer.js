@@ -6,7 +6,7 @@ exports.send = function(recipient, photosByDates) {
 	var subject = 'Your flickr daily photos! - ' + getPhotosCount(photosByDates) + ' photos';
 	photosByDates = filterOutEmptyDates(photosByDates);
 	var html = mailHtmlGenerator.getMailHtml(photosByDates);
-	mailer.sendMail('flickr-daily@server.fake', config.email, subject, html);
+	return mailer.sendMail('flickr-daily@server.fake', config.email, subject, html);
 };
 
 function getPhotosCount(photosByDates) {

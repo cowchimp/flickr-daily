@@ -1,17 +1,18 @@
 var nodemailer = require('nodemailer');
 var config = require('./../config');
+var Q = require('q');
 
 exports.sendMail = function(sender, recipient, subject, html) {
 	var transport = createTransport();
-	transport.sendMail({
+	var sendMailArgs = {
 		from: sender,
 		to: recipient,
 		subject: subject,
 		html: html,
 		forceEmbeddedImages: true
-	}, function() {
-		transport.close();
-	});
+	};
+
+	return Q.nfcall(transport.sendMail, sendMailArgs).finally(transport.close.bind(transport));
 };
 
 function createTransport() {

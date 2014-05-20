@@ -5,14 +5,19 @@ var config = require('./config');
 
 exports.run = function(date) {
 	var dates = yearLeaper.leap(date, config.leaps);
-	flickrFetcher.fetch(dates, handleResults);
+	var flickrFetchPromise = flickrFetcher.fetch(dates);
+	var sendMailPromise = flickrFetchPromise.then(sendMail);
+	return sendMailPromise.catch(function(err) {
+		console.error(err);
+		throw err;
+	});
 };
 
-function handleResults(err, photosByDates) { //TODO: handler errors
+function sendMail(photosByDates) {
 	if(!config.shouldSendMailIfNoPhotos && !haveAnyPhotos(photosByDates)) {
 		return;
 	}
-	photoMailer.send(config.email, photosByDates);
+	return photoMailer.send(config.email, photosByDates);
 }
 
 function haveAnyPhotos(photosByDates) {
