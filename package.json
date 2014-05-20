@@ -1,0 +1,24 @@
+{
+  "name": "flickr-daily",
+  "description": "Sends an email with the flickr photos taken on this day",
+  "author": "cowchimp",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "flickrapi": "0.3.19",
+    "lodash": "*",
+    "nodemailer": "*",
+    "shortlink": "*",
+    "async": "*",
+    "moment": "*",
+    "hogan.js": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "chai-datetime": "~1.1.2"
+  },
+  "license": "MIT"
+}

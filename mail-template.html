@@ -1,0 +1,12 @@
+{{#photosByDates}}
+	<h2>{{date}}</h2>
+	{{#photos}}
+		<a href="{{url}}">
+			<img src="{{image}}" />
+		</a>
+		<br/>
+		<a href="{{shortUrl}}">{{shortUrl}}</a>
+		<br/><br/>
+	{{/photos}}
+	{{^photos}}No photos for this day<br/><br/>{{/photos}}
+{{/photosByDates}}
