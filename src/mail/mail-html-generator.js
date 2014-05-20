@@ -1,7 +1,6 @@
 var hogan = require('hogan.js');
 var fs = require('fs');
 var moment = require('moment');
-var _ = require('lodash');
 var path = require('path');
 
 var mailTemplatePath = path.join(__dirname, '../../mail-template.html');
@@ -15,7 +14,7 @@ exports.getMailHtml = function(photosByDates) {
 };
 
 function convertDatesToDisplayDates(photosByDates) {
-	_.forEach(photosByDates, function(obj) {
+	photosByDates.forEach(function(obj) {
 		obj.date = moment(obj.date).format('MMMM Do YYYY');
 	});
 }

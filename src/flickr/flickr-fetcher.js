@@ -1,5 +1,4 @@
 var Flickr = require('flickrapi');
-var _ = require('lodash');
 var async = require('async');
 var config = require('./../config');
 var photoFormatter = require('./photo-formatter');
@@ -33,7 +32,7 @@ exports.fetch = function(dates, callback) {
 				}
 
 				var photos = result.photos.photo;
-				photos = _.map(photos, photoFormatter.format);
+				photos = photos.map(photoFormatter.format);
 				callback(false, {
 					date: date,
 					photos: photos

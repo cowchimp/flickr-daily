@@ -1,7 +1,6 @@
 var flickrFetcher = require('./flickr/flickr-fetcher');
 var photoMailer = require('./mail/photo-mailer');
 var yearLeaper = require('./year-leaper');
-var _ = require('lodash');
 var config = require('./config');
 
 exports.run = function(date) {
@@ -17,7 +16,7 @@ function handleResults(err, photosByDates) { //TODO: handler errors
 }
 
 function haveAnyPhotos(photosByDates) {
-	return _.any(photosByDates, function(result) {
+	return photosByDates.some(function(result) {
 		return result.photos.length > 0;
 	});
 }
