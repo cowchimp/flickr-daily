@@ -10,7 +10,7 @@ suite('photoFormatter', function() {
 		assert.equal(result.image, 'http://farm8.staticflickr.com/7081/7333526372_18da17bae2_n.jpg');
 	});
 
-	test('format returns correct image', function() {
+	test('format returns correct url', function() {
 		var photo = getFlickrPhoto();
 
 		var result = photoFormatter.format(photo);
@@ -18,7 +18,7 @@ suite('photoFormatter', function() {
 		assert.equal(result.url, 'http://www.flickr.com/photos/34671331@N07/7333526372');
 	});
 
-	test('format returns correct image', function() {
+	test('format returns correct shortUrl', function() {
 		var photo = getFlickrPhoto();
 
 		var result = photoFormatter.format(photo);
