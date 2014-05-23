@@ -27,7 +27,8 @@ function getSearchPromise(date, flickr) {
 		page: 1,
 		per_page: 100,
 		min_taken_date: convertDateToUnix(dateTimeRounder.floor(date)),
-		max_taken_date: convertDateToUnix(dateTimeRounder.ceil(date))
+		max_taken_date: convertDateToUnix(dateTimeRounder.ceil(date)),
+		sort: 'date-taken-asc'
 	};
 
 	return Q.nfcall(flickr.photos.search, searchArgs).then(function(result) {
