@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "flickrapi": "0.3.19",
-    "nodemailer": "*",
+    "nodemailer": "0.6.5",
     "shortlink": "*",
     "q": "*",
     "moment": "*",
